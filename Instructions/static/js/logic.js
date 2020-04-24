@@ -63,14 +63,14 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
   legend.onAdd = function (map) {
 
     var div = L.DomUtil.create('div', 'info legend'),
-        grades = [0, 10, 20, 50, 100, 200, 500, 1000],
-        labels = [];
+    magnatude = [0, 1, 2, 3, 4, 5]
+      colors = ["white", "blue", "green", "yellow", "orange", "red"];
 
     // loop through our density intervals and generate a label with a colored square for each interval
-    for (var i = 0; i < grades.length; i++) {
+    for (var i = 0; i < magnatude.length; i++) {
         div.innerHTML +=
-            '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
-            grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+            '<i style="background:' + colors[i] + '">&nbsp&nbsp&nbsp&nbsp</i> ' +
+            magnatude[i] + (magnatude[i + 1] ? '&ndash;' + magnatude[i + 1] + '<br>' : '+');
     }
 
     return div;
